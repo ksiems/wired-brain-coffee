@@ -8,6 +8,15 @@ jobs:
     steps:
       - checkout
       - run: echo "this is the build job"
+      
+      - run:
+          name: build dependencies
+          command: bundle install
+      
+      - run:
+          name: build the jekyll site
+          command: bundle exec jekyll build
+
       - run:
           name: Greeting
           command: echo Hello, world.
